@@ -1,10 +1,7 @@
 package com.abdul.axisapp
 
 import android.text.TextUtils
-import io.mockk.MockKAnnotations
-import io.mockk.every
-import io.mockk.mockk
-import io.mockk.mockkStatic
+import io.mockk.*
 import org.junit.Before
 import org.junit.Test
 
@@ -15,7 +12,18 @@ class StringCheckerTest {
     fun setUp() {
         MockKAnnotations.init(this, relaxUnitFun = true)
         mockkStatic(TextUtils::class)
+        val result = ExampleObject.add(10,20)
     }
+
+    @Test
+    fun testAdd(){
+        mockkObject(ExampleObject)
+        every { ExampleObject.add(10,20)} returns 9
+        val result = ExampleObject.add(10,20)
+
+    }
+
+
 
     @Test
     fun stringChecker_Is_Empty() {
