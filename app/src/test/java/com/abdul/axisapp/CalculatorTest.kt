@@ -1,9 +1,22 @@
 package com.abdul.axisapp
 
+import io.mockk.MockKAnnotations
+import io.mockk.impl.annotations.MockK
 import junit.framework.TestCase
+import org.junit.Before
 import org.junit.Test
 
 class CalculatorTest : TestCase() {
+
+    /*@MockK
+    private lateinit var object: MyClass()*/
+
+   /* @Before
+    fun setUp() {
+        MockKAnnotations.init(this, relaxUnitFun = true )
+    }*/
+
+
 
     @Test
     fun testAdd() {
