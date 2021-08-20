@@ -22,7 +22,13 @@ class DbAccessObj(var context: Context) {
 
         database.insert(FeedEntry.TABLE_NAME,null,values)
     }
-    fun readRow(){}
+    fun readRow(): String{
+     var cursor = database.query(FeedEntry.TABLE_NAME,null,null,null,null,null,null,)
+        cursor.moveToFirst()
+        var titleIndex = cursor.getColumnIndexOrThrow(FeedEntry.COLUMN_NAME_TITLE)
+        var title = cursor.getString(titleIndex)
+        return  title
+    }
     fun deleteRow(){}
     fun updateRow(){}
 

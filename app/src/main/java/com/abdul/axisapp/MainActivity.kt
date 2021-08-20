@@ -25,11 +25,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun saveDb(view: View) {       //click the button
-        var titleString = titleEt.text.toString()
-        var subTitleString = subTitle.text.toString()
-        dao.createRow(titleString,subTitleString)
-        titleEt.setText("")
-        subTitle.setText("")
-        resultTv.text = titleString
+        when(view.id){
+            R.id.btnSave -> {
+                var titleString = titleEt.text.toString()
+                var subTitleString = subTitle.text.toString()
+                dao.createRow(titleString,subTitleString)
+                titleEt.setText("")
+                subTitle.setText("")
+            }
+            R.id.btnRetreive ->{
+                var result = dao.readRow();
+                resultTv.text = result
+
+            }
+        }
+
     }
 }
